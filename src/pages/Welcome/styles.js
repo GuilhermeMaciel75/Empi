@@ -1,0 +1,63 @@
+import styled, { css } from 'styled-components/native';
+
+export const Container = styled.View`
+  flex: 1;
+`
+
+export const GreyContainer = styled.View`
+  width: 375px;
+  height: 434px;
+  border-radius: 0 0 100px 100px;
+  background-color: #D9D9D9;
+`
+
+export const WhiteContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  padding: 0 24px;
+`
+
+export const DotContainer = styled.View`
+  width: 66px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 40px;
+`
+
+export const Dot = styled.View`
+  height: 8px;
+  width: 8px;
+  background-color: #09190E;
+  border-radius: 50%;
+
+  ${props => props.dotSelected &&
+    css`
+      width: 20px;
+      background-color: #10E873;
+    `
+  }
+`
+
+export const Title = styled.Text`
+  font-size: 24px;
+  margin-top: 52px;
+  text-align: center;
+`
+
+export const Subtitle = styled.Text`
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+`
+
+export const Button = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 48px;
+  right: 24px;
+  padding: 16px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: #10E873;
+`
