@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
+import { Image } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import {
@@ -10,7 +11,13 @@ import {
   WhiteContainer,
   Title,
   Subtitle,
-} from './styles';
+} from './styles'
+
+const welcomeImages = {
+  1: require('../../../assets/Welcome/welcome-1.png'),
+  2: require('../../../assets/Welcome/welcome-2.png'),
+  3: require('../../../assets/Welcome/welcome-3.png'),
+}
 
 const phrases = [
   {
@@ -40,7 +47,9 @@ const Welcome = () => {
 
   return (
     <Container>
-      <GreyContainer/>
+      <GreyContainer>
+        <Image source={welcomeImages[dotSelected + 1]} />
+      </GreyContainer>
 
       <WhiteContainer>
         <DotContainer>

@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import Task from '../pages/Task'
+import Chat from '../pages/Chat'
 
 const Tab = createBottomTabNavigator()
 
@@ -15,14 +16,12 @@ function MyTabs() {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: '#09190E',
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
         },
       }}
     >
       <Tab.Screen 
-        name='Task' 
-        component={Task} 
+        name='Chat' 
+        component={Chat} 
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }} >
