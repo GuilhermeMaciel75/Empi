@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 const LoginScreen = ({ navigation }) => {
@@ -10,6 +10,14 @@ const LoginScreen = ({ navigation }) => {
     console.log('Email:', email);
     console.log('Senha:', password);
     navigation.navigate('Main');
+  };
+
+  const handleCreateAccount = () => {
+    console.log('Criar nova conta clicado');
+  };
+
+  const handleForgotPassword = () => {
+    console.log('Esqueceu a senha clicado');
   };
 
   return (
@@ -34,6 +42,12 @@ const LoginScreen = ({ navigation }) => {
         onPress={handleLogin}
         style={styles.button}
       />
+      <TouchableOpacity onPress={handleCreateAccount}>
+        <Text style={styles.linkText}>Criar nova conta</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={handleForgotPassword}>
+        <Text style={styles.linkText}>Esqueceu a senha?</Text>
+      </TouchableOpacity>
     </View>
   );
 };
