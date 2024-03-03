@@ -4,7 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 
 import Task from '../pages/Task'
 import Chat from '../pages/Chat'
-import Login from '../pages/Login'
+import VideoAula from '../pages/VideoAula'
 
 const Tab = createBottomTabNavigator()
 
@@ -33,7 +33,7 @@ function MyTabs() {
       />
 
       <Tab.Screen
-        name='Task2' 
+        name='Task' 
         component={Task} 
         options={{
           tabBarIcon: ({focused}) => (
@@ -45,8 +45,8 @@ function MyTabs() {
       />
 
       <Tab.Screen 
-        name='Login' 
-        component={Login} 
+        name='VideoAula' 
+        component={VideoAula} 
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }} >

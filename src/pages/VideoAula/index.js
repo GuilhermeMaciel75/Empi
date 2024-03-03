@@ -1,41 +1,72 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, Image } from 'react-native';
 import { Video } from 'expo-av';
-import styles from './styles';
+import YoutubeIframe from 'react-native-youtube-iframe';
+
+import {
+  Container, 
+  ImageContainer
+} from './styles'
 
 const VideoScreen = () => {
-  const handleOption1Click = () => {
-    // Lógica para quando a opção 1 for clicada
-    console.log('Opção 1 clicada');
-  };
-
-  const handleOption2Click = () => {
-    // Lógica para quando a opção 2 for clicada
-    console.log('Opção 2 clicada');
-  };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Aula</Text>
-      </View>
-      <View style={styles.videoContainer}>
-        <Video
-          source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
-          style={styles.video}
-          useNativeControls
-          resizeMode="contain"
+    <Container>
+      <Text style={{ fontSize: 24, fontWeight: 'bold' }}>O que são finanças?</Text>
+      <Text style={{ fontSize: 22 }}>Introdução a Finanças - 1/4</Text>
+
+      <ImageContainer>
+        <Image
+          source={require('../../../assets/Content/text-background.png')}
+          style={{
+            position: 'absolute',
+          }} 
         />
-      </View>
-      <View style={styles.optionsContainer}>
-        <TouchableOpacity onPress={handleOption1Click}>
-          <Text style={styles.option}>Opção 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleOption2Click}>
-          <Text style={styles.option}>Opção 2</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+
+        <Text style={{ fontSize: 20, color: '#C6F3E8' }}>Aula em texto</Text>
+      </ImageContainer>
+
+      <ImageContainer>
+        <Image
+          source={require('../../../assets/Content/audio-background.png')}
+          style={{
+            position: 'absolute'
+          }}
+        />
+
+        <Text style={{ fontSize: 20, color: '#C6F3E8' }}>Aula em áudio</Text>
+      </ImageContainer>
+
+      <ImageContainer isSelected>
+        <Image
+          source={require('../../../assets/Content/video-background.png')}
+          style={{
+            position: 'absolute'
+          }}
+        />
+
+        <Text style={{ fontSize: 20, color: '#C6F3E8' }}>Aula em vídeo</Text>
+      </ImageContainer>
+
+      {/* <Video
+        source={{ uri: 'https://www.youtube.com/watch?v=GWGL5dBy3-8&ab_channel=PedroInvest' }}
+        style={{
+          width: '100%',
+          height: '36%',
+          borderBottomRightRadius: '26%',
+          borderBottomLeftRadius: '26%'
+        }}
+        useNativeControls
+        resizeMode="cover"
+      /> */}
+
+      <YoutubeIframe
+        videoId='GWGL5dBy3-8'
+        height='100%'
+        width='100%'
+        play
+      />
+    </Container>
   );
 };
 
