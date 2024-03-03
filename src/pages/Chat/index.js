@@ -34,16 +34,41 @@ const Chat = () => {
     }
   }, [])
 
-  const handleSendText = () => {
-    if (isIntroduction) setIsIntroduction(false)
-
-    setMessages([...messages, inputText, 'Compreendo Totalmente']) // simulando a pessoa falar e o bot responder   
-    setInputText('')
-
+  const handleSendText = async () => {
+    if (isIntroduction) setIsIntroduction(false);
+  
+    // Adiciona a mensagem do usuário primeiro
+    setMessages((prevMessages) => [...prevMessages, inputText]);
+  
+    setInputText('');
+  
+    try {
+      const response = await fetch('http://localhost:8000/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: inputText,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
+  
+      const data = await response.json();
+  
+      setMessages((prevMessages) => [...prevMessages, data.message]);
+    } catch (error) {
+      console.error('Erro ao buscar dados da API:', error);
+      setMessages((prevMessages) => [...prevMessages, 'Desculpe, ocorreu um erro.']);
+    }
+  
     setTimeout(() => {
-      scrollViewRef.current?.scrollToEnd({ animated: true })
-    }, 100) // pra dar um efeito
-  }
+      scrollViewRef.current?.scrollToEnd({ animated: true });
+    }, 100);
+  };
 
   return (
     <KeyboardAvoidingView
