@@ -1,10 +1,27 @@
 import { View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { MaterialIcons } from '@expo/vector-icons'
 
-import Task from '../pages/Task'
+import Subject from '../pages/Subject'
 import Chat from '../pages/Chat'
-import VideoAula from '../pages/VideoAula'
+import Lesson from '../pages/Lesson'
+import Task from '../pages/Task'
+import Profile from '../pages/Profile'
+
+const LessonStack = createNativeStackNavigator()
+
+const LessonRoutes = () => (
+  <LessonStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
+    <LessonStack.Screen name='Subject' component={Subject} />
+    <LessonStack.Screen name='Task' component={Task} />
+    <LessonStack.Screen name='Lesson' component={Lesson} />
+  </LessonStack.Navigator>
+);
 
 const Tab = createBottomTabNavigator()
 
@@ -12,6 +29,7 @@ function MyTabs() {
   
   return (
     <Tab.Navigator
+      initialRouteName='LessonRoutes'
       screenOptions={{
         header: () => null,
         tabBarShowLabel: false,
@@ -33,8 +51,8 @@ function MyTabs() {
       />
 
       <Tab.Screen
-        name='Task' 
-        component={Task} 
+        name='LessonRoutes' 
+        component={LessonRoutes} 
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }} >
@@ -45,8 +63,8 @@ function MyTabs() {
       />
 
       <Tab.Screen 
-        name='VideoAula' 
-        component={VideoAula} 
+        name='Profile' 
+        component={Profile} 
         options={{
           tabBarIcon: ({focused}) => (
             <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }} >

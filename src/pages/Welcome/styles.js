@@ -63,3 +63,23 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   background-color: #10E873;
 `
+
+export const MeetAppButton = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 92px;
+  padding: 16px 24px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #10E873;
+`
+
+export const JumpTutorialButton = styled.TouchableOpacity`
+  position: absolute;
+  bottom: 44px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: #D9D9D9;
+`

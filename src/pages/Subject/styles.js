@@ -36,10 +36,11 @@ export const OptionCheck = styled.View`
   border-radius: 50%;
   justify-content: center;
   align-items: center;
+  
   ${props => 
     props.optionSelected &&
     css`
-      background-color: #09190E;
+      background-color: #199954;
       border: none;
     `
   }

@@ -1,6 +1,8 @@
 import { useCallback, useMemo, useState } from 'react'
-import { Image } from 'react-native'
+import { Image, Text } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
+
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -11,6 +13,8 @@ import {
   WhiteContainer,
   Title,
   Subtitle,
+  MeetAppButton,
+  JumpTutorialButton,
 } from './styles'
 
 const welcomeImages = {
@@ -35,6 +39,8 @@ const phrases = [
 ]
 
 const Welcome = () => {
+  const { signIn } = useAuth()
+
   const [dotSelected, setDotSelected] = useState(0)
 
   const handleDotSelection = useCallback(() => {
@@ -60,11 +66,23 @@ const Welcome = () => {
     
         <Subtitle>{phrases[dotSelected].subtitle}</Subtitle>
         
-        <Button
-          onPress={handleDotSelection}
-        >
-          <MaterialIcons name='arrow-forward' size={32} color='black' />
-        </Button>
+        {
+          dotSelected != 2
+            ? <Button
+                onPress={handleDotSelection}
+              >
+                <MaterialIcons name='arrow-forward' size={32} color='black' />
+              </Button>
+            : <>
+                <MeetAppButton>
+                  <Text style={{ fontSize: 14 }} >Quero conhecer o app</Text>
+                </MeetAppButton>
+          
+                <JumpTutorialButton onPress={signIn}>
+                  <Text style={{ fontSize: 11 }} >Pular tutorial</Text>
+                </JumpTutorialButton>
+              </>
+        }
       </WhiteContainer>
     </Container>
   )
