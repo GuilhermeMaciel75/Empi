@@ -55,7 +55,7 @@ export const Subtitle = styled.Text`
 
 export const Button = styled.TouchableOpacity`
   position: absolute;
-  bottom: 48px;
+  bottom: 32px;
   right: 24px;
   padding: 16px;
   border-radius: 50%;
@@ -65,8 +65,7 @@ export const Button = styled.TouchableOpacity`
 `
 
 export const MeetAppButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 92px;
+  margin-top: 60px;
   padding: 16px 24px;
   border-radius: 10px;
   justify-content: center;
@@ -75,8 +74,7 @@ export const MeetAppButton = styled.TouchableOpacity`
 `
 
 export const JumpTutorialButton = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 44px;
+  margin-top: 12px;
   padding: 12px 24px;
   border-radius: 10px;
   justify-content: center;
