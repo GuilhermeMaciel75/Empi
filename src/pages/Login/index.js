@@ -1,55 +1,58 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
-const LoginScreen = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+import * as Animatable from 'react-native-animatable'
 
-  const handleLogin = () => {
-    console.log('Email:', email);
-    console.log('Senha:', password);
-    navigation.navigate('Main');
-  };
-
-  const handleCreateAccount = () => {
-    console.log('Criar nova conta clicado');
-  };
-
-  const handleForgotPassword = () => {
-    console.log('Esqueceu a senha clicado');
-  };
-
+export default function Signin() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bem-vindo ao Capacita</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        onChangeText={setEmail}
-        value={email}
-        keyboardType="email-address"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Senha"
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry
-      />
-      <Button
-        title="Login"
-        onPress={handleLogin}
-        style={styles.button}
-      />
-      <TouchableOpacity onPress={handleCreateAccount}>
-        <Text style={styles.linkText}>Criar nova conta</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleForgotPassword}>
-        <Text style={styles.linkText}>Esqueceu a senha?</Text>
-      </TouchableOpacity>
+      <Animatable.View
+        animation="fadeInLeft"
+        delay={500}
+        style={styles.containerHeader}
+      >
+        <Text style={styles.message}>Capacita</Text>
+      </Animatable.View>
+      <View style={styles.containerLogo}>
+        <Animatable.Image
+          animation="flipInY"
+          source={require('../../../assets/Chat/logoLogin.png')}
+          style={{ width: '100%' }}
+          resizeMode="contain"
+        />
+      </View>
+      <Animatable.View animation="fadeInUp" style={styles.containerForm}>
+        <Text style={styles.title}>Usuário</Text>
+        <TextInput
+          placeholder="Digite seu usuário"
+          style={styles.input}
+        />
+        <Text style={styles.title}>Senha</Text>
+        <TextInput
+          placeholder="Sua senha"
+          style={styles.input}
+        />
+
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonRegisterSocial}>
+          <Text style={styles.registerText}>Entrar com Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonRegisterSocial}>
+          <Text style={styles.registerText}>Entrar com facebook</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonRegister}>
+          <Text style={styles.registerText}>Esqueceu a senha?</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonRegister}>
+          <Text style={styles.registerText}>Increva-se</Text>
+        </TouchableOpacity>
+
+      </Animatable.View>
     </View>
   );
-};
-
-export default LoginScreen;
+}
