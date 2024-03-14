@@ -33,7 +33,6 @@ export const OptionCheck = styled.View`
   width: 16px;
   border-width: 1.5px;
   border-color: #09190E;
-  border-radius: 50%;
   justify-content: center;
   align-items: center;
   ${props => 

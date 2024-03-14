@@ -20,7 +20,6 @@ export const InputContainer = styled.View`
   font-size: 16px;
   border-width: 1px;
   border-color: #09190E;
-  border-radius: 50%;
   padding-right: 6px;
   padding-left: 16px;
   align-items: center;
@@ -36,7 +35,6 @@ export const InputButton = styled.TouchableOpacity`
   background-color: #09190E;
   height: 28px;
   width: 28px;
-  border-radius: 50%;
   align-items: center;
   justify-content: center;
 `
@@ -46,7 +44,6 @@ export const MessageContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 8px;
-  border-radius: 6%;
   margin-bottom: 12px;
   max-width: 260px;
 

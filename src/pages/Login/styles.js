@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
   containerForm: {
     backgroundColor: '#FAF9F6',
     flex: 1,
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
     paddingStart: '5%',
     paddingEnd: '5%',
   },
